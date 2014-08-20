@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bet_date: 2014-08-20
+  bet_amount: 1
+  userid: 1
+
+two:
+  bet_date: 2014-08-20
+  bet_amount: 1
+  userid: 1
