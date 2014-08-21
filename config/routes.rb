@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get "log_in" => 'sessions#new', :as => "log_in"
 
-  get 'users/new'
+  get 'sign_up' => 'users#new', :as => "sign_up"
 
-  resources :posts
+
+  resources :posts, :users, :bets
 
   get 'pages/home'
   get 'pages/about'

@@ -29,7 +29,10 @@ gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.gi
 gem "watu_table_builder", :require => "table_builder", :git => "git://github.com/watu/table_builder.git"
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+# Adds attr_accessible
+gem 'protected_attributes'
 
 # Use unicorn as the app server
 # gem 'unicorn'
