@@ -1,26 +1,25 @@
 <div class='container'>
-<h1>All bets</h1>
+<h1>Current bets</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Bet Date</th>
       <th>Amount</th>
-      <th>Name</th>
+      <th>Current Bet Holder</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @bets.each do |bet| %>
+    <% @bets.where(:active => 1).each do |bet| %>
       <tr>
-        <td><%= bet.bet_date %></td>
+        <td><%= link_to bet.bet_date, :action => "show", :bet_date => bet.bet_date %></td>
+        <td><%= bet.bet_amount %></td>
         <td><%= bet.user_id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 
 </div>

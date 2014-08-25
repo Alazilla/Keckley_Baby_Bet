@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'sign_up' => 'users#new', :as => "sign_up"
 
+  get 'by_date' => 'bets#show', :as => "by_date"
+
 
   resources :posts, :users, :bets
 

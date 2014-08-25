@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20140820222206) do
 
+  create_table "bets", force: true do |t|
+    t.date     "bet_date"
+    t.integer  "bet_amount"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "Active"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -27,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140820222206) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",         default: false
   end
 
 end

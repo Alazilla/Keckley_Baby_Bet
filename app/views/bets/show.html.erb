@@ -1,1 +1,26 @@
-<h1>Bet history</h1>
+
+
+<div class='container'>
+<h1>Bet History for <%=  params[:bet_date] %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Bet Amount</th>
+      <th>Name</th>
+      <th>Date Placed</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bets.each do |bet| %>
+      <tr>
+        <td><%= bet.bet_amount %></td>
+        <td><%= bet.user_id %></td>
+        <td><%= bet.created_at %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
