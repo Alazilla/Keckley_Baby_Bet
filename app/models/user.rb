@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
-  has_many :bets
+  has_many :bets, dependent: :destroy
+  has_many :posts
   
   attr_accessor :password
 

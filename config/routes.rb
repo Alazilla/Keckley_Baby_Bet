@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get "log_in" => 'sessions#new', :as => "log_in"
-
+  get "log_out" => "sessions#destroy", :as => "log_out"
   get 'sign_up' => 'users#new', :as => "sign_up"
-
   get 'by_date' => 'bets#show', :as => "by_date"
 
 
-  resources :posts, :users, :bets
+  resources :posts, :users, :bets, :sessions
 
   get 'pages/home'
   get 'pages/about'

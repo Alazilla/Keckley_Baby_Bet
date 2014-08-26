@@ -1,5 +1,9 @@
 <div class='container'>
 <h1>Current bets</h1>
+<% if current_user %>
+<%= link_to 'New Bet', new_bet_path, class: "btn btn-primary btn-lg" %>
+<% else %>
+<% end %>
 
 <table class="table">
   <thead>

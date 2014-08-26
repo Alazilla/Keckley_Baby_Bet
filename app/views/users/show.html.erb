@@ -1,0 +1,30 @@
+<div class='container'>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<div class="row">
+<h2>Active Bets</h2>
+
+<tbody>
+    <%= @user.bets.order("created_at DESC").each do |bet| %>
+
+      <tr>
+        <td><%= bet.bet_date %></td>
+        <td><%= bet.bet_amount %></td>
+        </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+</div>
+</div>
