@@ -1,16 +1,16 @@
 class BetsController < ApplicationController
 
 def index
-    @bets = Bet.order('bet_date DESC').all
+    @bets = Bet.active.ordered
 
 end
 
 def show
-	@bets = Bet.order('created_at DESC').given_date(params[:bet_date])
+	@bets = Bet.given_date(params[:bet_date]).recent
 end
 
 def show_active
-	@bets = Bet.order('created_at DESC').given_date(params[:bet_date])
+	@bets = Bet.recent.given_date(params[:bet_date])
 end
 
 def new
@@ -20,7 +20,7 @@ end
 def create
 	@bet = user.bets.new(bet_params)
 	if @bet.save
-    	redirect_to :action => :by_date
+    	redirect_to :action => :index
 	else
 		nil
 	end

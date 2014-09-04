@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  belongs_to :user
+
 
   # GET /posts
   # GET /posts.json

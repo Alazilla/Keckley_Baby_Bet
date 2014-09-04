@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820222206) do
+ActiveRecord::Schema.define(version: 20140904190619) do
 
   create_table "bets", force: true do |t|
-    t.date     "bet_date"
+    t.date     "bet_date",                   null: false
     t.integer  "bet_amount"
     t.integer  "user_id"
+    t.boolean  "is_active",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "Active"
   end
 
   create_table "posts", force: true do |t|

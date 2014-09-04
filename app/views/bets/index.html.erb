@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @bets.where(:active => 1).each do |bet| %>
+    <% @bets.each do |bet| %>
       <tr>
         <td><%= link_to bet.bet_date, :action => "show", :bet_date => bet.bet_date %></td>
         <td><%= bet.bet_amount %></td>
