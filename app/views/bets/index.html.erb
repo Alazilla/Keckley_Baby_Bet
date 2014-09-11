@@ -1,9 +1,19 @@
-<div class='container'>
-<h1>Current bets</h1>
+
+<div class ='container'>
+
+<%= render 'calendar' %>
+
+<%= render 'makebet' if current_user %>
+
 <% if current_user %>
 <%= link_to 'New Bet', new_bet_path, class: "btn btn-primary btn-lg" %>
 <% else %>
 <% end %>
+
+
+
+<h1>Most recent bets</h1>
+
 
 <table class="table">
   <thead>

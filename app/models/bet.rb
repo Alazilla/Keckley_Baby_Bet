@@ -11,8 +11,6 @@ class Bet < ActiveRecord::Base
 	
 
 
-	before_save :make_active
-
 	def self.given_date(date)
 		where(:bet_date => date)
 	end
@@ -21,19 +19,7 @@ class Bet < ActiveRecord::Base
 		where(:bet_date => date).order("created_at desc").limit(1)
 	end
 
-def self.deactivate
-	is_active = false
-end
 
-private
-	def make_active
-		self.is_active = true
-		oldbet = Bet.find_last(bet_date)
-		if oldbet != 0
-			oldbet.deactivate
-			self.bet_amount += 1
-		else
-			nil
-		end
-	end
+
+
 end

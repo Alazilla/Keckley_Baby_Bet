@@ -2,7 +2,9 @@ class BetsController < ApplicationController
 
 def index
     @bets = Bet.active.ordered
-
+    @date = Date.today
+    @month_before = @date.beginning_of_month-1
+    @month_after = @date.end_of_month+1
 end
 
 def show
@@ -19,10 +21,8 @@ end
 
 def create
 	@bet = user.bets.new(bet_params)
-	if @bet.save
-    	redirect_to :action => :index
-	else
-		nil
+	respond_to do |format|
+		format.js
 	end
 end
 

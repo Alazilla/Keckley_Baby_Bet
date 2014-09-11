@@ -1,0 +1,71 @@
+<div class ='container'>
+
+<div class = 'row'>
+<div class='col-md-1'>
+<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") %>
+</div>
+
+<div class='col-md-3'>
+<div id="calendar">
+<%= calendar_for(@bets, :year => @month_before.year, :month => @month_before.month) do |t| %>
+  <%= h @month_before.strftime("%B %Y") %>
+  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+  <%= t.day(:day_method => :bet_date) do |month_before, bets| %>
+  <a href="">
+  <div class = "calendar day">
+    <%= month_before.day %>
+    <% bets.each do |bet| %>
+        <% end %>
+      </div></a>
+  <% end %>
+<% end %>
+</div>
+</div>
+
+
+<div class='col-md-3'>
+<div id="calendar">
+<%= calendar_for(@bets, :year => @date.year, :month => @date.month) do |t| %>
+  <%= h @date.strftime("%B %Y") %>
+  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+  <%= t.day(:day_method => :bet_date) do |date, bets| %>
+
+  <a href="">
+  <div class = "calendar day">
+      <%= date.day %>
+    <% bets.each do |bet| %>
+    <% end %>
+      </div></a>
+  <% end %>
+<% end %>
+
+</div>
+</div>
+
+<div class='col-md-3'>
+<div id="calendar">
+<%= calendar_for(@bets, :year => @month_after.year, :month => @month_before.month) do |t| %>
+  <%= h @month_after.strftime("%B %Y") %>
+  <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
+  <%= t.day(:day_method => :bet_date) do |month_after, bets| %>
+    <a href="">
+  <div class = "calendar day">
+    <%= month_after.day %>
+    <% bets.each do |bet| %>
+      
+    <% end %>
+  </div></a>
+  <% end %>
+<% end %>
+</div>
+</div>
+
+<div class='col-md-1'>
+<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-01") %>
+</div>
+<div class='col-md-1'>
+</div>
+
+</div>
+
+</div>
