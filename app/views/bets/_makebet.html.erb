@@ -1,5 +1,15 @@
 <div class ='container'>
 
-		this bet is taken
+
+		<div id = "make-bet">
+			<%= form_for(Bet.new, remote: true) do |f| %>
+			
+				<%=  params[:bet_date] %> is 
+	
+			<br>
+			<%= f.button :submit %>
+			<% end %>
+			
+		</div>
 
 </div>

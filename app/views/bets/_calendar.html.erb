@@ -11,7 +11,7 @@
   <%= h @month_before.strftime("%B %Y") %>
   <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
   <%= t.day(:day_method => :bet_date) do |month_before, bets| %>
-  <a href="">
+  <a href="#" class="choose-bet">
   <div class = "calendar day">
     <%= month_before.day %>
     <% bets.each do |bet| %>
@@ -30,12 +30,9 @@
   <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
   <%= t.day(:day_method => :bet_date) do |date, bets| %>
 
-  <a href="">
   <div class = "calendar day">
-      <%= date.day %>
-    <% bets.each do |bet| %>
-    <% end %>
-      </div></a>
+      <%= link_to date.day, {:bet_date => date.strftime, remote: true}, :class => "choose-bet" %>
+      </div>
   <% end %>
 <% end %>
 
@@ -48,7 +45,7 @@
   <%= h @month_after.strftime("%B %Y") %>
   <%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
   <%= t.day(:day_method => :bet_date) do |month_after, bets| %>
-    <a href="">
+  <a href="#" class="choose-bet">
   <div class = "calendar day">
     <%= month_after.day %>
     <% bets.each do |bet| %>

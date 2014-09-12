@@ -5,10 +5,18 @@ def index
     @date = Date.today
     @month_before = @date.beginning_of_month-1
     @month_after = @date.end_of_month+1
+	respond_to do |format|
+		format.html
+		format.js
+	end
 end
 
 def show
 	@bets = Bet.given_date(params[:bet_date]).recent
+	respond_to do |format|
+		format.html
+		format.js
+	end
 end
 
 def show_active
@@ -22,6 +30,7 @@ end
 def create
 	@bet = user.bets.new(bet_params)
 	respond_to do |format|
+		format.html
 		format.js
 	end
 end

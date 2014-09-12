@@ -19,7 +19,12 @@ class Bet < ActiveRecord::Base
 		where(:bet_date => date).order("created_at desc").limit(1)
 	end
 
-
-
+	def self.exists(date)
+		if where(:bet_date => date).order("created_at desc").limit(1)
+			true
+		else
+			false
+		end
+	end
 
 end

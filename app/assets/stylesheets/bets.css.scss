@@ -10,7 +10,7 @@
 #calendar th {
   font-family: "Lucida Grande",arial,helvetica,sans-serif;
   font-size: 10px;
-  padding: 6px;
+  padding: 0px;
   border: 1px solid #999;
 }
 
@@ -69,9 +69,16 @@
   text-align: center;
 }
 
-#calendar day {
+.day {
   margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
+  padding: 7px;
+}
+
+#make-bet {
+	display: none;
+}
+
+.choose-bet{
 }

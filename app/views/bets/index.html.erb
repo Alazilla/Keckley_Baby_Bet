@@ -5,35 +5,25 @@
 
 <%= render 'makebet' if current_user %>
 
-<% if current_user %>
-<%= link_to 'New Bet', new_bet_path, class: "btn btn-primary btn-lg" %>
-<% else %>
-<% end %>
+
+
 
 
 
 <h1>Most recent bets</h1>
 
+<div class="list-group">
+<h4 class="list-group-item-heading">Bet Date</h4><h4 class="list-group-item-heading">Bet Amount</h4>
+<h4 class="list-group-item-heading">Bet Holder</h4>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Bet Date</th>
-      <th>Amount</th>
-      <th>Current Bet Holder</th>
-    </tr>
-  </thead>
+<% @bets.each do |bet, user| %>
+  <%= div_for bet do %>
+  <%= link_to bet.bet_date, :action => "show", :bet_date => bet.bet_date %>
+  <%= bet.bet_amount %>
+  <%= bet.user.name %>
 
-  <tbody>
-    <% @bets.each do |bet| %>
-      <tr>
-        <td><%= link_to bet.bet_date, :action => "show", :bet_date => bet.bet_date %></td>
-        <td><%= bet.bet_amount %></td>
-        <td><%= bet.user_id %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% end %>
+<% end %>
 
 
 </div>
